@@ -1,13 +1,14 @@
 package com.application;
 
-import java.util.GregorianCalendar;
+import java.time.LocalDate;
+
 import java.util.Objects;
 
 public class User {
     private String nameAndSurname;
     private String email;
     private Long phoneNumber;
-    private GregorianCalendar dateOfBirth;
+    private LocalDate dateOfBirth;
 
     @Override
     public String toString() {
@@ -47,11 +48,11 @@ public class User {
         this.phoneNumber = phoneNumber;
     }
 
-    public void setDateOfBirth(GregorianCalendar dateOfBirth) {
+    public void setDateOfBirth(LocalDate dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
 
-    public User(String nameAndSurname, String email, Long phoneNumber, GregorianCalendar dateOfBirth) {
+    public User() {
     }
 
     public String getNameAndSurname() {
@@ -66,7 +67,7 @@ public class User {
         return phoneNumber;
     }
 
-    public GregorianCalendar getDateOfBirth() {
+    public LocalDate getDateOfBirth() {
         return dateOfBirth;
     }
 

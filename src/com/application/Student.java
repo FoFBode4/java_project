@@ -8,7 +8,7 @@ public class Student extends com.application.User {
  private int ResultTest;
 
     public Student(String nameAndSurname, String email, Long phoneNumber, GregorianCalendar dateOfBirth) {
-        super(nameAndSurname, email, phoneNumber, dateOfBirth);
+        super();
     }
     public String getCourse() {
         return course;

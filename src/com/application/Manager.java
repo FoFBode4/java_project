@@ -1,11 +1,70 @@
 package com.application;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.*;
 
+
 public class Manager {
+
+//    public  final String USER_LIST_CSV = "UserList.csv";
+//    public  final char DELIMITER = ';';
+//    List<User> userList;
+//
+//    public void readFileUser(){
+//        userList = new LinkedList<>();
+//        BufferedReader reader;
+//        try {
+//            reader = new BufferedReader(new FileReader(
+//                    USER_LIST_CSV));
+//            String line = reader.readLine();
+//            while (line != null) {
+//                line = reader.readLine();
+//                createUserFromString(line);
+//            }
+//            reader.close();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//    }
+//
+//    public void createUserFromString(String line) {
+//        User user = new User();
+//
+//        int positionOfDelimiter = line.indexOf(DELIMITER);
+//        String name = line.substring(0, positionOfDelimiter);
+//        user.getNameAndSurname();
+//        String email = line.substring(positionOfDelimiter + 1);
+//        user.getEmail();
+//
+//        userList.add(user);
+//    }
+public void readFileUser(){
+    String csvFile = "UserList.csv";
+    String line = "";
+    String cvsSplitBy = ";";
+
+    try (BufferedReader br = new BufferedReader(new FileReader(csvFile))) {
+
+        while ((line = br.readLine()) != null) {
+
+            String[]users = line.split(cvsSplitBy);
+
+            System.out.println( users[0]+ " " + users[1] + " " + users[2]+ " " + users[3]);
+
+        }
+
+    } catch (IOException e) {
+        e.printStackTrace();
+    }
+}
+
+
     public void Scanner() {
         String userInput;
         Scanner sn = new Scanner(System.in);
+
         while (true) {
             System.out.println("\n-- Виберіть одну з доступних дій. --");
             System.out.println("\n* Натисніть '1', щоб вивести список Користувачів.");
@@ -19,7 +78,8 @@ public class Manager {
 
             switch (userInput) {
                 case "1":
-                    System.out.println("\nДякую, ви вивели список Користувачів.");
+                    readFileUser();
+
                     break;
                 case "2":
                     System.out.println("дякую, ви вивели список Студентів.");
@@ -53,40 +113,6 @@ public class Manager {
 //
 //
 //
-    public List<User> users() {
-        List<User> usersList = new ArrayList<>();
-        usersList.add(new User("Andrew Orshak", "orshachOK@gmail.com", 380508211866L,
-                new GregorianCalendar(1999, Calendar.SEPTEMBER, 17)));
-        usersList.add(new User("Vova Tsyhaniuk", "tsyhaniukvova1997@gmail.com", 380508023102L,
-                new GregorianCalendar(1996, Calendar.NOVEMBER, 27)));
-        usersList.add(new User("Vitaliy Romanchuk", "vitalukvitalka@gmail.com", 380994989896L,
-                new GregorianCalendar(2002, Calendar.APRIL, 29)));
-        usersList.add(new User("Oksana Litovska", "oksooksi1997@gmail.com", 380973326786L,
-                new GregorianCalendar(1994, Calendar.AUGUST, 14)));
-        usersList.add(new User("Andrew Hladchuk", "hladchyk1987@gmail.com", 380905833756L,
-                new GregorianCalendar(1997, Calendar.DECEMBER, 1)));
-        usersList.add(new User("Alex Romaniuk", "alexromaniuk1997@gmail.com", 380508211866L,
-                new GregorianCalendar(1999, Calendar.JUNE, 13)));
-        usersList.add(new User("Dima Tymchuk", "dmitriyt@gmail.com", 380502384906L,
-                new GregorianCalendar(2002, Calendar.JANUARY, 2)));
-        usersList.add(new User("Anna Ivanova", "ivanovaivanova@gmail.com", 380994998987L,
-                new GregorianCalendar(2001, Calendar.MAY, 23)));
-        usersList.add(new User("Vasyl Syniyk", "vsyniyk@hmail.com", 380996756564L,
-                new GregorianCalendar(1993, Calendar.JUNE, 18)));
-        usersList.add(new User("Nastia Korchinska", "korchinskanastia@gmail.com", 380995878674L,
-                new GregorianCalendar(1996, Calendar.JUNE, 8)));
-        usersList.add(new User("Masha Narodova", "narodovamasha@gmail.com", 380971234567L,
-                new GregorianCalendar(1997, Calendar.MAY, 1)));
-        usersList.add(new User("Andrew Mazur", "mazurandrew@gmail.com", 380971234523L,
-                new GregorianCalendar(1996, Calendar.JULY, 17)));
-        usersList.add(new User("Alex Garabajiy", "garanajiy2000@gmail.com", 380992134523L,
-                new GregorianCalendar(2000, Calendar.JUNE, 19)));
-        usersList.add(new User("Ilona Mardar", "IlonaIlona2001@gmail.com", 380992134523L,
-                new GregorianCalendar(1995, Calendar.OCTOBER, 27)));
-        System.out.println();
-
-        return usersList;
-    }
 
 //    public List<com.application.Mentor> mentors() { // Створюємо 2х менторів
 //        List<com.application.Mentor> mentorList = new ArrayList<>();
